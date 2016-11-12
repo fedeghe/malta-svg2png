@@ -14,7 +14,7 @@ function malta_svg2png(o, options) {
 			svg_to_png.convert(o.name, path.dirname(o.name), {compress : true}) // async, returns promise 
 			.then( function() {
 				o.name = o.name.replace(/\.svg$/, '.png');
-				msg = 'plugin ' + path.basename(__filename) + ' wrote ' + o.name + ' (' + self.getSize(o.name) + ')';
+				msg = 'plugin ' + path.basename(path.dirname(__filename)).white() + ' wrote ' + o.name + ' (' + self.getSize(o.name) + ')';
 				solve(o);
 				self.notifyAndUnlock(start, msg);
 			});
