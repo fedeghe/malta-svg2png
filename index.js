@@ -8,12 +8,7 @@ function malta_svg2png(o, options) {
 	var self = this,
 		start = new Date(),
 		msg,
-        pluginName = path.basename(path.dirname(__filename)),
-		doErr = function (e) {
-			console.log(('[ERROR on ' + o.name + ' using ' + pluginName + '] :').red());
-			console.dir(e);
-			self.stop();
-		};
+        pluginName = path.basename(path.dirname(__filename));
 
 	return function (solve, reject){
 		try {
@@ -25,7 +20,7 @@ function malta_svg2png(o, options) {
 				self.notifyAndUnlock(start, msg);
 			});
 		} catch (err) {
-			doErr(err);
+			self.doErr(err, o, pluginName);
 		}
 	};
 }
