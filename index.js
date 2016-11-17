@@ -7,21 +7,25 @@ var svg_to_png = require("svg-to-png"),
 function malta_svg2png(o, options) {
 	var self = this,
 		start = new Date(),
-		msg;
+		msg,
+        pluginName = path.basename(path.dirname(__filename)),
+		doErr = function (e) {
+			console.log(('[ERROR on ' + o.name + ' using ' + pluginName + '] :').red());
+			console.dir(e);
+			self.stop();
+		};
 
 	return function (solve, reject){
 		try {
 			svg_to_png.convert(o.name, path.dirname(o.name), {compress : true}) // async, returns promise 
 			.then( function() {
 				o.name = o.name.replace(/\.svg$/, '.png');
-				msg = 'plugin ' + path.basename(path.dirname(__filename)).white() + ' wrote ' + o.name + ' (' + self.getSize(o.name) + ')';
+				msg = 'plugin ' + pluginName.white() + ' wrote ' + o.name + ' (' + self.getSize(o.name) + ')';
 				solve(o);
 				self.notifyAndUnlock(start, msg);
 			});
-		} catch (e) {
-			console.log('[PARSE ERROR: svg-to-png] ' + e.message + ' @' + e.line + ' maybe on ' + self.lastEditedFile);
-			console.log('[WARN: Png version skipped]');
-			self.stop();
+		} catch (err) {
+			doErr(err);
 		}
 	};
 }
