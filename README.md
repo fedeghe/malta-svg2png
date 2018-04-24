@@ -1,3 +1,10 @@
+---
+[![npm version](https://badge.fury.io/js/malta-svg2png.svg)](http://badge.fury.io/js/malta-svg2png)
+[![Dependencies](https://david-dm.org/fedeghe/malta-svg2png.svg)](https://david-dm.org/fedeghe/malta-svg2png)
+[![npm downloads](https://img.shields.io/npm/dt/malta-svg2png.svg)](https://npmjs.org/package/malta-svg2png)
+[![npm downloads](https://img.shields.io/npm/dm/malta-svg2png.svg)](https://npmjs.org/package/malta-svg2png)  
+---  
+
 This plugin can be used on: **.svg** files
 
 Options : no options  
