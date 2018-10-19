@@ -1,8 +1,7 @@
 require('malta').checkDeps('svg-to-png');
 
 var svg_to_png = require("svg-to-png"),
-	path = require('path'),
-	fs = require('fs');
+	path = require('path');
 
 function malta_svg2png(o, options) {
 	var self = this,
