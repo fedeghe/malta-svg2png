@@ -23,7 +23,7 @@
   "dependencies": {
     "malta": ">=3.8.14",
     "minimatch": ">=3.0.4",
-    "svg-to-png": "^3.1.2",
+    "svg-to-png": "^4.0.0",
     "tunnel-agent": ">=0.6.0"
   },
   "main": "./index.js"
