@@ -19,7 +19,8 @@ function malta_svg2png(o, options) {
 				self.notifyAndUnlock(start, msg);
 			});
 		} catch (err) {
-			self.doErr(err, o, pluginName);
+            self.doErr(err, o, pluginName);
+            reject(`Plugin ${pluginName} error:\n${err}`);
 		}
 	};
 }
