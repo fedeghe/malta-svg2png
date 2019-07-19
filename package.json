@@ -21,7 +21,7 @@
         "url": "https://github.com/fedeghe/malta-svg2png/issues"
     },
     "dependencies": {
-        "malta": ">=3.8.14",
+        "malta": "4.0.4",
         "minimatch": ">=3.0.4",
         "svg-to-png": "^4.0.0",
         "tunnel-agent": ">=0.6.0"
