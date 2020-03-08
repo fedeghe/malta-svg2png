@@ -1,18 +1,16 @@
-require('malta').checkDeps('svg-to-png');
-
-var svg_to_png = require("svg-to-png"),
+const svg_to_png = require("svg-to-png"),
 	path = require('path');
 
 function malta_svg2png(o, options) {
-	var self = this,
+	const self = this,
 		start = new Date(),
-		msg,
-        pluginName = path.basename(path.dirname(__filename));
+        pluginName = path.basename(path.dirname(__filename))
+    let msg;
 
-	return function (solve, reject){
+	return (solve, reject) => {
 		try {
 			svg_to_png.convert(o.name, path.dirname(o.name), {compress : true}) // async, returns promise 
-			.then( function() {
+			.then(() => {
 				o.name = o.name.replace(/\.svg$/, '.png');
 				msg = 'plugin ' + pluginName.white() + ' wrote ' + o.name + ' (' + self.getSize(o.name) + ')';
 				solve(o);
